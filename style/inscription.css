@@ -1,0 +1,99 @@
+.p{
+    font-family:Roboto;
+    margin-top:0;
+    margin-bottom:0;
+}
+.header{
+    display:block;
+    margin: 50px 50px 50px 50px;
+    font-family: "Playfair Display", "Times New Roman";
+    font-size: 16px;
+    border-bottom: 1px solid #1485ae;
+}
+.contributor{
+    display:block;
+    font-weight:bold;
+    padding: 0px 20px 0px 20px;
+}
+.avery{
+    font-weight:bold;
+    color:rgb(163, 94, 4);
+    margin-left:5px;
+}
+.inscription-info{
+    margin-top: 0;
+    padding: 20px 20px 20px 20px;
+
+}
+.src{
+    padding: 20px 20px 20px 20px;
+}
+.text{
+    display:grid;
+    grid-template-columns: 2fr 1.5fr 1fr;
+    margin-bottom:0px;
+    margin-left:50px;
+    margin-top:50px;
+    margin-right: 50px;
+    font-family: Roboto, Arial;
+    line-height:20px;
+
+}
+.title-origin{
+    font-weight:bold;
+    font-size:24px;
+    height: 100px;
+    margin-bottom: 40px;
+    line-height:30px;
+}
+.title-translation{
+    font-weight:bold;
+    font-size:24px;
+    margin-bottom: 0;
+    height:100px;
+    margin-bottom: 40px;
+    line-height:30px;
+}
+.text-origin{
+    display:inline-block;
+    width: 1fr;
+    margin-left:20px;
+    margin-right: 40px;
+    margin-top:0;
+    margin-bottom:0;
+}
+.preface{
+    margin-bottom:60px;
+}
+.main-content{
+    margin-bottom:60px;
+}
+.coda{
+    margin-bottom:200px;
+}
+.text-translation{
+    display: inline-block;
+    width: 2fr;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:0;
+    margin-bottom:0;
+}
+.preface-translation{
+    margin-bottom:60px;
+}
+.main-content-translation{
+    margin-bottom:60px;
+}
+.coda-translation{
+    margin-bottom:200px;
+}
+.Desc{
+    display:inline-block;
+    color:rgb(82, 82, 82);
+}
+.inscription-img{
+    display:inline-block;
+    max-width:300px;
+
+}
