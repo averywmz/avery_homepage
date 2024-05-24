@@ -13,7 +13,8 @@
 .contributor{
     display:block;
     font-weight:bold;
-    padding: 0px 20px 0px 20px;
+    padding: 0px 0px 0px 20px;
+    text-align: center;
 }
 .avery{
     font-weight:bold;
@@ -25,8 +26,18 @@
     padding: 20px 20px 20px 20px;
 
 }
+.info-title{
+    display:block;
+    font-weight:bold;
+    font-family: "Playfair Display", "Times New Roman";
+    font-size: 140%;  
+}
+.transcription-info{
+    font-size: 120%;
+}
 .src{
     padding: 20px 20px 20px 20px;
+    color:rgb(110, 110, 110);
 }
 .text{
     display:grid;
@@ -43,13 +54,12 @@
     font-weight:bold;
     font-size:24px;
     height: 100px;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     line-height:30px;
 }
 .title-translation{
     font-weight:bold;
     font-size:24px;
-    margin-bottom: 0;
     height:100px;
     margin-bottom: 40px;
     line-height:30px;
@@ -95,5 +105,65 @@
 .inscription-img{
     display:inline-block;
     max-width:300px;
-
 }
+
+details,
+summary {
+  display: inline;
+  vertical-align: super;
+  font-size: 0.75rem;
+  padding: 0 0.25rem;
+}
+summary {
+  cursor: hover;
+}
+.details-content {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;
+  padding: 1rem;
+  font-size: 1em;
+  font-weight:150;
+  background: lightyellow;
+  box-shadow: 0 0 100px rgb(0, 0, 0);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.fake-p {
+  margin: 0 0 1rem 0;
+}
+
+body {
+  font: 100%/1.4 system-ui;
+  margin: 0;
+  padding: 2rem 2rem 20rem 2rem;
+}
+
+.superscript {
+    vertical-align: super;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(249, 173, 31);
+}
+
+.popupElement {
+    display: none;
+    position: absolute;
+    width: 350px;
+    height: 150px; 
+    background-color: rgb(255, 238, 163);
+    padding: 15px;
+    box-shadow: 0px 0px 50px rgba(102, 91, 63, 0.7);
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    border-radius: 10px;
+}
+
