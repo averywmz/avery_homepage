@@ -11,22 +11,58 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    </head>
-    <body>
-         <div class="header">
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.body.addEventListener('click', function(event) {
+                    const target = event.target;
+                    if (target.classList.contains('superscript')) {
+                        const popupId = target.getAttribute('data-popup');
+                        const popupElement = document.getElementById(popupId);
+    
+                        const rect = target.getBoundingClientRect();
+                        popupElement.style.top = `${rect.top + window.scrollY}px`;
+                        popupElement.style.left = `${rect.right + window.scrollX + 10}px`; // Add a small margin to the right
+    
+                        document.querySelectorAll('.popupElement').forEach(el => {
+                            if (el !== popupElement) {
+                                el.style.display = 'none';
+                            }
+                        });
+    
+                        popupElement.style.display = 'block';
+    
+                        event.stopPropagation();
+                    } else {
+                        document.querySelectorAll('.popupElement').forEach(popup => {
+                            popup.style.display = 'none';
+                        });
+                    }
+                });
+
+                document.querySelectorAll('.popupElement').forEach(popup => {
+                    popup.addEventListener('click', function(event) {
+                        event.stopPropagation();
+                    });
+                });
+            });
+        </script>
+      </head>
+    <body>  
+      <div class="header">
             <div class="contributor">
-                <p>
-                  This is a transcription of dirge from the Han dynasty(206BCE-220 CE), edited by <a class="avery" href="index.html">Avery Clare</a>.
+               <p>
+                  This is a transcription of dirge from the Han dynasty(206BCE-220 CE), edited by <a class="avery" href="avery_homepage.html">Avery Clare</a>.                  
                </p>
-            </div>   
+            </div> 
             <div class="inscription-info">
-               <p class="establishment-info">
+               <p class="info-title">Source Description</p> 
+               <p class="transcription-info">
+                  The transcription of this inscription is adapted from <em>Hanwei liuchao beike jiaozhu</em>漢魏六朝碑刻校注 compiled by Mao Yuanming毛遠明, and <em>Hanbei quanji</em>漢碑全集 compiled by Xu Yuli徐玉立.
                   The inscription was established in the Ren County任城 in 143 AD.
-               </p>
-               <p class="script">
                   The main content of the stele inscription is written in clerical script隸書. The epigraph title is written in seal script篆書.
-               </p>
-               <p class="column-info">
                   Each column contains 33 characters.
                </p>
                <p class="height">
@@ -34,6 +70,9 @@
                </p>
                <p class="width">
                   Width: 78 cm
+               </p>
+               <p>
+                  Depth: 18cm
                </p>
                <p class="column">
                    Columns: 17
@@ -53,149 +92,175 @@
                   </p>
                </div>
                <div class="preface-translation">
-                  <p>In the second year of Han'an Reign (143 C.E.)</p>
-                  <p>autumn □□</p>
-                  <p>Lord Jing, the former governor of Ren County in Beihai Commandery passed away.</p>
-                  <p>Alas, how grievous!</p>
-                  <p>The state □□ treasure</p>
-                  <p>The outstanding scholars lost their peer.</p>
-                  <p>All constellations lost the essence</p>
-                  <p>The latter scholars and the pupils are late in time.</p>
-                  <p>Upon where does Heaven</p>
-                  <p>Arranges the Fate and confers the term.</p>
-                  <p>There is life and there is death</p>
-                  <p>Heaven indeed controls it.</p>
-                  <p>How could that benevolent sage</p>
-                  <p>Be cut down with no remain.</p>
-                  <p>Therefore the former subordinates and students</p>
-                  <p>discussed with each other, said:</p>
-                  <p>As for the great figures of the ancient times</p>
-                  <p>None of which failed to shed light □ infinity,</p>
-                  <p>Spread fragrance and radiance to the records and pieces.</p>
-                  <p>Even if the physical self is dead, the deeds are clear</p>
-                  <p>Even if the body perished, the name continues to exist.</p>
-                  <p>Some have their figures pictured on the graphs,</p>
-                  <p>Some have the odes stroked on the winds and strings.</p>
-                  <p>The latecomers chant their contributions,</p>
-                  <p>Their achievements are recounted on bamboos slips and silks.</p>
-                  <p>Thus composed the dirge, which says:</p>
+                  <p style="text-indent: 2.5em">In the second year of Han'an era (143 C.E.)</p>
+                  <p style="text-indent: 2.5em">autumn □□</p>
+                  <p style="text-indent: 2.5em">Lord Jing, former governor of Rencheng County in Beihai passed away.</p>
+                  <p style="text-indent: 2.5em">Alas, how lamentable!</p>
+                  <p>05 &nbsp&nbsp The state □□ treasure</p>
+                  <p style="text-indent: 2.5em">The outstanding scholars lost their peers.</p>
+                  <p style="text-indent: 2.5em">All the constellations lost the essence</p>
+                  <p style="text-indent: 2.5em">The junior scholars and pupils are late in time.</p>
+                  <p style="text-indent: 2.5em">From where does the Heaven</p>
+                  <p>10 &nbsp&nbsp Arrange the Fate and confer the term.</p>
+                  <p style="text-indent: 2.5em">There is life and there is death</p>
+                  <p style="text-indent: 2.5em">Heaven indeed controls it.</p>
+                  <p style="text-indent: 2.5em">How could that benevolent sage</p>
+                  <p style="text-indent: 2.5em">Be subdued and not being left.</p>
+                  <p>15 &nbsp&nbsp Hence the former subordinates and students</p>
+                  <p style="text-indent: 2.5em">discussed with each other, saying:</p>
+                  <p style="text-indent: 2.5em">As for the great figures of ancient times</p>
+                  <p style="text-indent: 2.5em">None of which failed to shed light □ infinity,</p>
+                  <p style="text-indent: 2.5em">Spread fragrance and radiance to the records and pieces.</p>
+                  <p>20 &nbsp&nbsp Even if their bodies died, their deeds remain clear</p>
+                  <p style="text-indent: 2.5em">Even if their parts perished, their namees survive.</p>
+                  <p style="text-indent: 2.5em">Some have their figures pictured on the graphs,</p>
+                  <p style="text-indent: 2.5em">Some have their hymns stroked on the winds and strings.</p>
+                  <p style="text-indent: 2.5em">The latecomers chant their blazing meritious achievements,</p>
+                  <p>25 &nbsp&nbsp The documents on bamboos slips and silk recount their feats.</p>
+                  <p style="text-indent: 2.5em">Thus we composed the dirge, which says:</p>
                </div>
                <div class="main-content-translation">
-                  <p>Prostrating and thinking of the Enlightened Repositor,</p>
-                  <p>Who received his nature from Heaven.</p>
-                  <p>Faithful and deeply virtuous,</p>
-                  <p>He followed the rituals and carried out humaneness.</p>
-                  <p>He pursued the Way and followed the norm,</p>
-                  <p>He cherished the pureness and kept the natural property.</p>
-                  <p>Bright and white, clear and upright</p>
-                  <p>He subdued the self and cultivated himself.</p>
-                  <p>Truly he was gentle and truly he was firm,</p>
-                  <p>A master of sword and pen.</p>
-                  <p>Following father he attended the examination of filial piety,</p>
-                  <p>He received the informal position of Chamberlain for the National Treasury.</p>
-                  <p>Shedding his virtue to Yuan County,</p>
-                  <p>He procured profits and benefitted the people.</p>
-                  <p>Thereupon the brutal subordinates changed their behaviors,</p>
-                  <p>The cornered and feeble ones were covered in benevolence.</p>
-                  <p>He had the prestige established and the beneficence scattered,</p>
-                  <p>He cultivated conducts as if he was a deity.</p>
-                  <p>The emperor admired his deeds,</p>
-                  <p>Summoned him with the tally and decree.</p>
-                  <p>To guard the commanderies of Yi Region,</p>
-                  <p>The journey was far and he was concerned about his parents.</p>
-                  <p>He bent to the marquise and modestly declined</p>
-                  <p>Day and night serving the imperial court.</p>
-                  <p>He proposed loyal and upright advice,</p>
-                  <p>He distinguished the order in the eastern hillside.</p>
-                  <p>The imperial signet superadded the official appointment,</p>
-                  <p>He occupied the position of the Counselor of Beihai Commandery</p>
-                  <p>He governed nineteen cities,</p>
-                  <p>The neighboring countries inclined toward him.</p>
-                  <p>Clearly demarcated the good and the wicked, </p>
-                  <p>He prioritized with respect and concession.</p>
-                  <p>The demolished and the falsified changed mind,</p>
-                  <p>The light and cunning exceeded competition.</p>
-                  <p>The owls did not cry,</p>
-                  <p>The parted children returned to serve the parents.</p>
-                  <p>Multitudes of the widowers and the widows,</p>
-                  <p>They got tranquility because of the blessings.</p>
-                  <p>He accumulated the Way and cultivated his virtue,</p>
-                  <p>□ blessedness to achieve prosperity.</p>
-                  <p>As for the myriad esteemed rituals, </p>
-                  <p>The Enlightened Repositor carried them out.</p>
-                  <p>As for Benevolence and righteousness, the Way and the tactics,</p>
-                  <p>The Enlightened Repositor embraced them.</p>
-                  <p>As for Huang Zhu and Father Shao,</p>
-                  <p>The Enlightened Repositor joined to be the third of them.</p>
-                  <p>As for the official position of the Three Dukes and the buttresses,</p>
-                  <p>The Enlightened Repositor is suitable for them.</p>
-                  <p>In the illness he was summoned,</p>
-                  <p>He entrusted the official post and resigned.</p>
-                  <p>His people □ thought of him ardently,</p>
-                  <p>People from far and near scratched their heads in agitation.</p>
-                  <p>The farmers put down the plow,</p>
-                  <p>The tradesmen left the markets empty,</p>
-                  <p>With every entirety swallowed the tears.</p>
-                  <p>How come the imperial court,</p>
-                  <p>Deprived me of my caring father?</p>
-                  <p>Within ten days after he retired from the office, </p>
-                  <p>His disease became severe and concerning.</p>
-                  <p>The substance of jade-tablet and jade-disc,</p>
-                  <p>Could not be retrieved On the verge of death.</p>
-                  <p>The voices of the woeful whining could not stop,</p>
-                  <p>He passed away suddenly with no delay.</p>
-                  <p>The filial sons crashed and collided,</p>
-                  <p>Toppled and broken as if he was torn apart.</p>
-                  <p>No longer could he be awaken,</p>
-                  <p>He has returned forever to the underworld.</p>
-                  <p>The villagers of the households and people in the prefecture,</p>
-                  <p>Ran to the funeral with tears dripping.</p>
-                  <p>The former subordinates were distressed,</p>
-                  <p>Sobbing and hovering, again and again.</p>
-                  <p>The established scholars with caps and canopies around the state,</p>
-                  <p>Were startled and grieved full of sorrow.</p>
-                  <p>That which has the Great Fate fixed, </p>
-                  <p>Truly it is only given by Heaven.</p>
-                  <p>The enlightened ruler set up the position,</p>
-                  <p>The Enlightened Repositor would not take it.</p>
-                  <p>The vassals and sons desire to serve,</p>
-                  <p>The Enlightened Repositor would not remain.</p>
-                  <p>Alas, how grievous!</p>
+                  <p style="text-indent: 2.5em">Prostrating and thinking of the Enlightened Repositor,</p>
+                  <p style="text-indent: 2.5em">Who received his nature from Heaven.</p>
+                  <p style="text-indent: 2.5em">Faithful and deeply virtuous,</p>
+                  <p>30 &nbsp&nbsp He led the rituals and followed benevolence.</p>
+                  <p style="text-indent: 2.5em">He investigated the Way and examined the norms,</p>
+                  <p style="text-indent: 2.5em">He held the pureness and kept the authentic nature.</p>
+                  <p style="text-indent: 2.5em">Bright and white, clear and upright</p>
+                  <p style="text-indent: 2.5em">He restrained his self and cultivated his morality.</p>
+                  <p>35 &nbsp&nbsp Truly he was gentle and truly he was firm,</p>
+                  <p style="text-indent: 2.5em">Thus he was versed in martial arts and versed in letters.</p>
+                  <p style="text-indent: 2.5em">He received official nomination from the Receptionist,</p>
+                  <p style="text-indent: 2.5em">And informally served the Chamberlain of National Treasury.</p>
+                  <p style="text-indent: 2.5em">Shedding his virtue to Yuan County,</p>
+                  <p>40 &nbsp&nbsp He promoted profits and benefitted the people.</p>
+                  <p style="text-indent: 2.5em">The violent officials thus changed their behaviors,</p>
+                  <p style="text-indent: 2.5em">The trivial and feeble ones were covered in benevolence.</p>
+                  <p style="text-indent: 2.5em">The authority established, the beneficence scattered,</p>
+                  <p style="text-indent: 2.5em">He cultivated conduct as if he was a deity.</p>
+                  <p>45 &nbsp&nbsp The emperor admired his deeds,</p>
+                  <p style="text-indent: 2.5em">Appointed him to official positions with the tally and decree.</p>
+                  <p style="text-indent: 2.5em">To guard the Yizhou Commandery,</p>
+                  <p style="text-indent: 2.5em">The road was far distant and he was attached to his parents.</p>
+                  <p style="text-indent: 2.5em">He bent to the elders and modestly declined</p>
+                  <p>50 &nbsp&nbsp Day and night serving the imperial court.</p>
+                  <p style="text-indent: 2.5em">He offered loyal and upright advice in the official documents,</p>
+                  <p style="text-indent: 2.5em">He discerned the ritual order for the spring ploughing.</p>
+                  <p style="text-indent: 2.5em">The imperial signet superadded the official appointment,</p>
+                  <p style="text-indent: 2.5em">He occupied the position of the Chancellor of Beihai</p>
+                  <p>55 &nbsp&nbsp He governed nineteen cities,</p>
+                  <p style="text-indent: 2.5em">The neighboring countries inclined toward (him).</p>
+                  <p style="text-indent: 2.5em">Clearly telling the good from the wicked, </p>
+                  <p style="text-indent: 2.5em">He prioritized respect and concession.</p>
+                  <p style="text-indent: 2.5em">The demolished and the falsified ones changed their minds,</p>
+                  <p>60 &nbsp&nbsp The frivolous and cunning ones escaped from the border.</p>
+                  <p style="text-indent: 2.5em">The ominous owls ceased to cry,</p>
+                  <p style="text-indent: 2.5em">The parted sons returned to serve the parents.</p>
+                  <p style="text-indent: 2.5em">The multitudes of the widowers and the widows,</p>
+                  <p style="text-indent: 2.5em">Gained peace because of the blessings.</p>
+                  <p>65 &nbsp&nbsp He accumulated the Way and cultivated his virtue,</p>
+                  <p style="text-indent: 2.5em">□ blessedness to achieve prosperity.</p>
+                  <p style="text-indent: 2.5em">As for the myriad beautiful rituals, </p>
+                  <p style="text-indent: 2.5em">The Enlightened Repositor carried them out.</p>
+                  <p style="text-indent: 2.5em">As for Benevolence and righteousness, the Way and the tactics,</p>
+                  <p>70 &nbsp&nbsp The Enlightened Repositor embraced them.</p>
+                  <p style="text-indent: 2.5em">As for Huang Zhu and Father Shao,</p>
+                  <p style="text-indent: 2.5em">The Enlightened Repositor joined to be the third of them.</p>
+                  <p style="text-indent: 2.5em">The official position of the Three Dukes and the buttresses,</p>
+                  <p style="text-indent: 2.5em">The Enlightened Repositor is suitable for them.</p>
+                  <p>75 &nbsp&nbsp While ill he was summoned,</p>
+                  <p style="text-indent: 2.5em">He entrusted the official post and resigned.</p>
+                  <p style="text-indent: 2.5em">His people □ thought of him ardently,</p>
+                  <p style="text-indent: 2.5em">Far and near, they scratched their heads.</p>
+                  <p style="text-indent: 2.5em">The farmers let go of the plows,</p>
+                  <p>80 &nbsp&nbsp The merchants left the markets empty,</p>
+                  <p style="text-indent: 2.5em">They followed his carriage and swallowed their tears.</p>
+                  <p style="text-indent: 2.5em">How come the imperial court,</p>
+                  <p style="text-indent: 2.5em">Deprived me of my caring father?</p>
+                  <p style="text-indent: 2.5em">Within ten days after he left the official post, </p>
+                  <p>85 &nbsp&nbsp His disease became critical and difficult.</p>
+                  <p style="text-indent: 2.5em">The substance of jade-tablet and jade-disc,</p>
+                  <p style="text-indent: 2.5em">Could not be retrieved on the verge of death.</p>
+                  <p style="text-indent: 2.5em">The voices of the woeful whining were nonstop,</p>
+                  <p style="text-indent: 2.5em">He passed away suddenly with no delay.</p>
+                  <p>90 &nbsp&nbsp The filial sons crashed and collided,</p>
+                  <p style="text-indent: 2.5em">Toppled and broken as if he was torn apart.</p>
+                  <p style="text-indent: 2.5em">No longer could he be awaken,</p>
+                  <p style="text-indent: 2.5em">He has returned forever to the underworld.</p>
+                  <p style="text-indent: 2.5em">The villagers of the households and people in the prefecture,</p>
+                  <p>95 &nbsp&nbsp Ran to the funeral with tears dripping.</p>
+                  <p style="text-indent: 2.5em">The former subordinates were bereft,</p>
+                  <p style="text-indent: 2.5em">Sobbing and hovering, pacing up and down.</p>
+                  <p style="text-indent: 2.5em">The high officials of hats and canopies within the four seas,</p>
+                  <p style="text-indent: 2.5em">Were startled with grief and full of sorrow.</p>
+                  <p>100 &nbsp That which has the Great Fate fixed, </p>
+                  <p style="text-indent: 2.5em">Truly it is only conferred by Heaven.</p>
+                  <p style="text-indent: 2.5em">The enlightened ruler set up the position,</p>
+                  <p style="text-indent: 2.5em">The Enlightened Repositor would not take it.</p>
+                  <p style="text-indent: 2.5em">The vassals and sons desire to serve,</p>
+                  <p>105 &nbsp The Enlightened Repositor will not remain.</p>
+                  <p style="text-indent: 2.5em">Alas, how lamentable!</p>
                </div>
                <div class="coda-translation">
-                  <p>The coda says:</p>
-                  <p>Examining the accumulation and the dusky tomb,</p>
-                  <p>To express the extreme □. Oh!</p>
-                  <p>□□□□,</p>
-                  <p>Soared the spirit of Court Gentleman for Consultation. Oh!</p>
-                  <p>Once again appointed the tiger general, </p>
-                  <p>To pacify the common people. Oh!</p>
-                  <p>The cmpass-like stratagems and rule-like advice,</p>
-                  <p>Prioritized allegiance and faith to the master. Oh!</p>
-                  <p>Assisted the guardians and defended the shields, </p>
-                  <p>Appeased the myriad people. Oh!</p>
-                  <p>□□□□, </p>
-                  <p>His grace is more and more brimful. Oh!</p>
-                  <p>He should be promoted to join the tripod vassals,</p>
-                  <p>To fasten the trunk of the pine. Oh!</p>
-                  <p>Not eternal is his lifespan, </p>
-                  <p>He left the vassals and sons behind. Oh!</p>
-                  <p>His benevolence reaches Bohai and Mountain Tai, </p>
-                  <p>People composed Gan Tang for you. Oh!</p>
-                  <p>Engraved on the stone and carved the inscriptions, </p>
-                  <p>□ would not perish. Oh!</p>
+                  <p style="text-indent: 2.5em">The coda says:</p>
+                  <p style="text-indent: 2.5em">Examining the accumulation and the dusky tomb,</p>
+                  <p style="text-indent: 2.5em">To express the extreme □. Oh!</p>
+                  <p>110 &nbsp □□□□,</p>
+                  <p style="text-indent: 2.5em">Soared the spirit of Court Gentleman for Consultation. Oh!</p>
+                  <p style="text-indent: 2.5em">Once again appointed the tiger general, </p>
+                  <p style="text-indent: 2.5em">To pacify the common people. Oh!</p>
+                  <p style="text-indent: 2.5em">The norm-like stratagems and rule-like advice,</p>
+                  <p>115 &nbsp Prioritized serving with allegiance and trustworthiness. Oh!</p>
+                  <p style="text-indent: 2.5em">Assisted the guardians and defended the shields, </p>
+                  <p style="text-indent: 2.5em">Appeasing the myriad people. Oh!</p>
+                  <p style="text-indent: 2.5em">□□□□, </p>
+                  <p style="text-indent: 2.5em">His grace is more and more brimful. Oh!</p>
+                  <p>120 &nbsp He should be promoted to join the tripod vassals,</p>
+                  <p style="text-indent: 2.5em">To fasten the trunk of the pine. Oh!</p>
+                  <p style="text-indent: 2.5em">Not eternal is his lifespan, </p>
+                  <p style="text-indent: 2.5em">He left his subordinates and sons behind. Oh!</p>
+                  <p style="text-indent: 2.5em">The benevolence reaches Bohai and Mountain Tai, </p>
+                  <p>125 &nbsp People composed <em>Gan Tang</em> for him. Oh!</p>
+                  <p style="text-indent: 2.5em">Engraved on the stone and carved the inscriptions, </p>
+                  <p style="text-indent: 2.5em">□ would not perish. Oh!</p>
                </div>
             </div>
             <div class="text-origin">
                <div class="title-origin">
                   <p>
-                     Han Gu Yizhou Taishou Beihai Xiang Jing Jun Ming漢故益州太守北海相景君銘
+                     Han Gu Yizhou Taishou Beihai Xiang Jing Jun Ming漢故益州太守北海相景君銘<sup class="superscript" data-popup="popup1">1</sup>
+                  </p>
+                  <div id="popup1" class="popupElement">
+                     <p>
+                        <strong><em>Yizhou taishou</em>益州太守 (Governor of Yizhou Commandery)</strong>: Yizhou commandery (<em>Yizhou jun</em>郡) was a subordinate administrative unit of the Yi Region (<em>Yizhou</em>益州) located in roughly the Sichuan Province today. The Han local government was carried out in a Region-Commandery-District (<em>zhou</em>州-<em>jun</em>郡-<em>xian</em>縣) system. The Han empire was divided into thirteen Regions (<em>zhou</em>州), under each Regions were Commanderies(<em>jun</em>) administrated by Governors (<em>taishou</em>太守; grand administrator), as the title and the text of this inscription indicates: 守郡益州. 
+                        <p>
+                           See <em>Hou Hanshu</em>, <em>zhi</em> 23. 3512.
+                        </p>   
+                     </p>  
+                     <p>
+                        <strong><em>Beihai xiang</em>北海相 (Chancellor of the Beihai)</strong>: Beihai was a Princedom (<em>wangguo</em>王國) corresponding in size to commanderies in the Han time. The Han carried out a semifeudal character to government, equally divided the regional units administrated by the central government as Commanderies (<em>jun</em>郡) and the areas granted to the princes and marquises with feudal titles as Princedoms (<em>guo</em>). 
+                     </p>
+                     <p>
+                        <strong><em>Xiang</em>相 (Chancellor, Administrator, or Counselor-delegate)</strong> in the Han time, according to Hucker, was “the senior official in a Princedom, Marquisate, or other semi feudal domain.” This official position is equivalent with a Governor (<em>taishou</em>) of the Commandery (<em>jun</em>) in the Han time. 
+                        <p>
+                           See <em>Hou Hanshu</em>, <em>zhi</em> 22. 3473. Charles O. Hucker, <em>A Dictionary of Official Titles in Imperial China</em>. (Stanford, Calif: Stanford University Press, 1985), 230; Hans Bielenstein, “The Institutions of Later Han,” in <em>The Cambridge History of China</em>, ed. Denis Twitchett and Michael Loewe (Cambridge: Cambridge University Press, 1986), 506–508.                    
+                        </p>
+                     </p>
+                     </div>
                   </p>
                </div>
                <div class="preface">
-                  <p>惟漢安二年</p>
+                  <p>惟漢安二年
+                     <sup class="superscript" data-popup="popup2">2</sup>
+                     <div id="popup2" class="popupElement">
+                        <strong><em>Han‘an</em>漢安</strong> is the fourth era name in the reign of Emperor Shun of Han漢順帝 (personal name Liu Bao劉保, r. 125-144) used between 142-144.
+                     </div>
+                  </p>
                   <p>仲秋□□</p> 
-                  <p>故北海任城景府君卒</p>
+                  <p>故北海<sup class="superscript" data-popup="popup3">3</sup>任城景府君卒</p>
+                  <div id="popup3" class="popupElement"> 
+                     <strong><em>Rencheng</em>任城</strong> was one of the Han subordinate units of the Rencheng Princetom. Here, Rencheng is supposedly where Lord Jing come from. See <em>Hou Hanshu</em>, <em>zhi</em> 21. 3452.
+                  </div>
                   <p>歍歔哀哉!</p>
                   <p>國□□寶</p>
                   <p>英彥失疇</p>
@@ -232,8 +297,18 @@
                   <p>寔渘寔剛</p>
                   <p>乃武乃文</p>
                   <p>遵考孝謁</p>
-                  <p>假階司農</p>
-                  <p>流惪元城</p>
+                  <p>假階司農<sup class="superscript" data-popup="popup4">4</sup>
+                     <div id="popup4" class="popupElement">
+                        <strong><em>Sinong</em>司農 (Chamberlain for the National Treasury)</strong>, also known as Da sinong大司農, was one of the Nine Chamberlains (<em>jiuqing</em>九卿) in the central government, administering the financial issues including the granary system and salt and iron in the Han dynasty. Lord Jing probably informally served in the central government first and then went to serve the local governments, as indicated in the text. 
+                        <p>See Hucker, <em>A Dictionary of Official Titles in Imperial China</em>, 13, 453.</p>                        
+                     </div>
+                  </p>
+                  <p>流惪元城<sup class="superscript" data-popup="popup5">5</sup>
+                     <div id="popup5" class="popupElement">
+                        <strong>Yuan County (<em>Yuancheng</em>元城)</strong> was an administrative unit of Wei Commandery (<em>Wei jun</em>魏郡). 
+                        <p>See <em>Hou Hanshu</em>, <em>zhi</em> 20. 3431-3432.</p>
+                     </div>
+                  </p>
                   <p>興利恵民</p>
                   <p>強衙改節</p>
                   <p>微弱蒙恩</p>
@@ -246,16 +321,35 @@
                   <p>躬伯遜讓</p>
                   <p>夙宵朝廷</p>
                   <p>建筴忠讜</p>
-                  <p>辨秩東衍</p>
+                  <p>辨秩東衍<sup class="superscript" data-popup="popup6">6</sup>
+                     <div id="popup6" class="popupElement">
+                        This is a variant of the quote from the <em>Book of Documents</em>, 平秩東作. According to the commentary, the year starts from Spring and the ploughing in the farmland begins. There were also ritual sacrifices associated with the spring ploughing, thus Lord Jing was serving the role to ‘discern order’ (<em>bianzhi</em>辨秩) for this rite. In ancient Chinese culture, <em>dong</em>東(east) is also associated with Spring as East is the direction where Spring begins. 
+                        <p>See <em>Hou Hanshu</em>, 40.1368.</p>
+                     </div>
+                  </p>
                   <p>璽追嘉錫</p>
                   <p>據北海相</p>
-                  <p>部城十九</p>
+                  <p>部城十九<sup class="superscript" data-popup="popup7">7</sup>
+                     <div id="popup7" class="popupElement">
+                        The number <strong>nineteen (<em>shijiu</em>十九)</strong> of the subordinate units County (<em>cheng</em>城) is different from the treatises in <em>Hou Hanshu</em> (eighteen). A tentative explanation is that the Western Jin (265-316) historian Sima Biao司馬彪 (d.306) as the compiler of the treatise probably did not take Beihai county itself into account. 
+                        <p>See <em>Hou Hanshu</em>, <em>zhi</em> 22. 3473.</p>
+                     </div>
+                  </p>
                   <p>鄰邦歸向</p>
-                  <p>分明好𢝏</p>
+                  <p>分明好𢝏<sup class="superscript" data-popup="popup8">8</sup>
+                     <div id="popup8" class="popupElement">
+                        <strong>‘𢝏’</strong> is equivalent with the character <strong><em>e</em>惡</strong> (wicked). 
+                        <div><img src="thumbnails/e.jpg" style="height: 50px"></div>
+                     </div>
+                  </p>
                   <p>先以敬讓</p>
                   <p>殘僞易心</p>
                   <p>輕黠踰競</p>
-                  <p>鴟䲷不鳴</p>
+                  <p>鴟䲷不鳴<sup class="superscript" data-popup="popup9">9</sup>
+                     <div id="popup9" class="popupElement">
+                        <strong>‘鴟䲷’</strong> is equivalent with <strong><em>chixiao</em>鴟鴞 (owl)</strong>, which was considered an ominous bird in early Chinese culture. There is a poem ‘chixiao’鴟鴞 in the <em>Book of Songs</em> blaming the owl for ruining their life in the voice of the commoners.
+                     </div>
+                  </p>
                   <p>分子還養</p>
                   <p>元元鰥寡</p>
                   <p>蒙祐以寧</p>
@@ -265,7 +359,14 @@
                   <p>明府體之</p>
                   <p>仁義道術</p>
                   <p>明府膺之</p>
-                  <p>黃朱邵父</p>
+                  <p>黃朱邵父<sup class="superscript" data-popup="popup10">10</sup>
+                     <div  id="popup10" class="popupElement">
+                        Shao Xinchen召信臣, known as “Father Shao”召父, see <em>Hanshu</em> 89. 3641-43.  
+                        <p>
+                           For more information, see K.E. Brashier,  "Eastern Han Commemorative Stelae: Laying the Cornerstones of Public Memory," in J. Lagerwey and M. Kalinowski, eds. <em>Early Chinese Religion</em>, Part 1, Vol. 2 [Leiden: Brill, 2009], pp. 1027-1059). 
+                        </p>
+                     </div>
+                  </p>
                   <p>明府三之</p>
                   <p>台輔之任</p>
                   <p>明府宜之</p>
